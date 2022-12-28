@@ -3,7 +3,7 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="boardMapper">
-	<resultMap type="ju.study.project.board.vo.boardVO" id="board">
+	<resultMap type="ju.study.project.board.vo.BoardVO" id="board">
 		<id column="BOARD_NUM" 			property="boardNum"/>
 		<result column="TITLE" 			property="title"/>
 		<result column="WRITER" 		property="writer"/>

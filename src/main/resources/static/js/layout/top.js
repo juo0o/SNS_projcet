@@ -28,9 +28,16 @@ function searchAddr(){
 	    oncomplete: function(data) {
 			//도로명 주소
 			const roadAddr = data.roadAddress;
-			document.querySelector('#memberAddr').value = roadAddr;
+			document.querySelector('#memAddr').value = roadAddr;
 	    }
 	}).open();
+}
+
+//tell 하이폰 자동생성
+const hypenTel = (target) => {
+ target.value = target.value
+   .replace(/[^0-9]/g, '')
+   .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
 }
 
 //로그인 기능 함수

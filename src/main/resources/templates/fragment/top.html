@@ -9,9 +9,9 @@
 	<div class="row">
 		<div class="col text-end">
 <!-- 			<div sec:authorize="isAnonymous()"> -->
-				<a href="#" data-toggle="modal" data-bs-target="#join_modal">JOIN</a>
-				<span data-toggle="modal" data-bs-target="#login_modal">LOGIN</span>
-<!-- 			</div> -->
+			<a href="#" class="" data-bs-toggle="modal" data-bs-target="#join_modal">join</a>&nbsp;&nbsp;
+			<a href="#" class="" data-bs-toggle="modal" data-bs-target="#login_modal">login</a>
+			<!-- 			</div> -->
 <!-- 			<div sec:authorize="isAuthenticated()"> -->
 <!-- 				<span th:text="${#authentication.name}"></span>님 반갑습니다. -->
 <!-- 				<a th:href="@{/logout}">Logout</a> -->
@@ -31,43 +31,79 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">JOIN</h5>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Join</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-     	<form class="row g-3" action="/member/join" method="post">
+        <form class="row g-3" action="/member/join" method="post">
 		  <div class="col-12">
-		    <label for="memberId" class="form-label">ID</label>
-		    <input type="text" class="form-control" id="memberId" name="memberId">
+		    <label for="memId" class="form-label">ID</label>
+		    <input type="text" class="form-control" id="memId" name="memId">
 		  </div>
 		  <div class="col-12">
-		    <label for="memberPw" class="form-label">PASSWORD</label>
-		    <input type="password" class="form-control" id="memberPw" name="memberPw">
+		    <label for="memPw" class="form-label">PASSWORD</label>
+		    <input type="password" class="form-control" id="memPw" name="memPw">
 		  </div>
 		  <div class="col-12">
-		    <label for="memberName" class="form-label">NAME</label>
-		    <input type="text" class="form-control" id="memberName" name="memberName">
+		    <label for="memName" class="form-label">NAME</label>
+		    <input type="text" class="form-control" id="memName" name="memName">
+		  </div>
+		  <div class="col-12">
+		    <label for="memTell" class="form-label">Tell</label>
+		    <input type="text" class="form-control" oninput="hypenTel(this)" maxlength="13" name="memTell">
 		  </div>
 		  <div class="col-9">
-		    <label for="memberAddr" class="form-label">ADDRESS</label>
-		    <input onclick="searchAddr();" type="text" class="form-control" id="memberAddr" name="memberAddr" readonly>
+		    <label for="memAddr" class="form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADDRESS</label>
+		    <input onclick="searchAddr();" type="text" class="form-control" id="memAddr" name="memAddr" readonly>
 		  </div>
 		  <div class="col-3">
-		  	<label for="" class="form-label">&nbsp;</label>
+		  	<label for="addrDetail" class="form-label">&nbsp;</label>
 			<input onclick="searchAddr();" type="button" class="btn btn-secondary form-control" value="Search">
 		  </div>
 		  <div class="col-12">
 		  	<input type="text" class="form-control" name="addrDetail">
 		  </div>
 		  <div class="col-12">
-		    <label for="memberEmail" class="form-label">EMAIL</label>
-		    <input type="email" class="form-control" id="memberEmail" name="memberEmail">
+		    <label for="memEmail" class="form-label">EMAIL</label>
+		    <input type="email" class="form-control" id="memEmail" name="memEmail">
 		  </div>
 		  <div class="col-12 d-grid gap-2">
 		    <button type="submit" class="btn btn-primary">JOIN</button>
 		  </div>
 		</form>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- login버튼 클릭 시 실행되는 모달 -->
+<!-- Modal -->
+<div class="modal fade" id="login_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="row g-3" action="/member/login" method="post">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="mb-3">
+			  <label for="memberId" class="form-label">I D</label>
+			  <input name="memberId" type="text" class="form-control" id="memberId" placeholder="Input your ID...">
+			</div>
+			<div class="mb-3">
+			  <label for="memberPW" class="form-label">PASSWORD</label>
+			  <input name="memberPw" type="password" class="form-control" id="memberPw" placeholder="Input your Password...">
+			</div>
+	   	  </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Login</button>
+	        <button type="button" class="btn btn-primary" onclick="login();">Ajax Login</button>
+	      </div>
+		</form>
     </div>
   </div>
 </div>

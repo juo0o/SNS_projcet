@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="memberMapper">
+	<resultMap type="ju.study.project.member.vo.MemberVO" id="member">
+		<id column="MEM_ID" 			property="memId"/>
+		<result column="MEM_PW" 			property="memPw"/>
+		<result column="MEM_NAME" 		property="memName"/>
+		<result column="MEM_TELL" 		property="memTell"/>
+		<result column="MEM_ADDR" 	property="memAddr"/>
+		<result column="ADDR_DETAIL" 	property="addrDetail"/>
+		<result column="MEM_EMAIL" 	property="memEmail"/>
+		<result column="IS_ADMIN" 	property="isAdmin"/>
+	</resultMap>
+
+	<insert id="join">
+		INSERT INTO MEMBER(
+			MEM_ID
+			, MEM_PW
+			, MEM_NAME
+			, MEM_TELL
+			, MEM_ADDR
+			, ADDR_DETAIL
+			, MEM_EMAIL
+			, IS_ADMIN
+		)VALUES(
+			#{memId}
+			, #{memPw}
+			, #{memName}
+			, #{memTell}
+			, #{memAddr}
+			, #{addrDetail}
+			, #{memEmail}
+			, #{isAdmin}
+		)
+		
+	</insert>
+		
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

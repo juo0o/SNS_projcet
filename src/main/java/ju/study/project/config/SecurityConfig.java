@@ -23,7 +23,6 @@ public class SecurityConfig {
 						, "/member/login"
 						).permitAll() //인증없이 갈수잇음
 				.requestMatchers("/admin/**").hasRole("ADMIN")
-				.requestMatchers("/cart/**").hasRole("MEMBER")
 				.anyRequest().authenticated() //인증된사람만 갈수있음
 			.and()
 				.formLogin()
@@ -31,15 +30,15 @@ public class SecurityConfig {
 				.defaultSuccessUrl("/member/loginResult")
 				.failureUrl("/member/loginResult")
 				.loginProcessingUrl("/member/login") //실제 로그인을 진행할 요청 정보
-				.usernameParameter("memberId")
-				.passwordParameter("memberPw")
+				.usernameParameter("memId")
+				.passwordParameter("memPw")
 			.and()
 				.exceptionHandling()
 				.accessDeniedPage("/member/accessDenied")
 			.and()
 				.logout()
 				.invalidateHttpSession(true)
-				.logoutSuccessUrl("/item/list")
+				.logoutSuccessUrl("/board/boardList")
 			.and()
 				;
 				

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/board")
-public class boardController {
+public class BoardController {
 	
 	@GetMapping("/boardList")
 	public String boardList(boolean isLoginFail, Model model) {

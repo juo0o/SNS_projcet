@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("boardService")
-public class boardServiceImpl implements boardService{
+public class BoardServiceImpl implements BoardService{
 
 	@Autowired
 	SqlSessionTemplate sqlSession;
