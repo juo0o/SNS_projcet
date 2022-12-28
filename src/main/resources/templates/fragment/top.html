@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="layout/base_layout">
+	
+<div th:fragment="top" class="top">
+
+	<div class="row">
+		<div class="col text-end">
+<!-- 			<div sec:authorize="isAnonymous()"> -->
+				<a href="#" data-toggle="modal" data-bs-target="#join_modal">JOIN</a>
+				<span data-toggle="modal" data-bs-target="#login_modal">LOGIN</span>
+<!-- 			</div> -->
+<!-- 			<div sec:authorize="isAuthenticated()"> -->
+<!-- 				<span th:text="${#authentication.name}"></span>님 반갑습니다. -->
+<!-- 				<a th:href="@{/logout}">Logout</a> -->
+<!-- 				<a th:href="@{/cart/cartListPage}">내정보관리</a> -->
+<!-- 			</div> -->
+		</div>
+	</div>
+
+
+	<div style="text-align: center;">
+		<h1>H I</h1>
+	</div>
+
+
+<!-- join 클릭 시 실행되는 모달 -->
+<div class="modal fade" id="join_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">JOIN</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     	<form class="row g-3" action="/member/join" method="post">
+		  <div class="col-12">
+		    <label for="memberId" class="form-label">ID</label>
+		    <input type="text" class="form-control" id="memberId" name="memberId">
+		  </div>
+		  <div class="col-12">
+		    <label for="memberPw" class="form-label">PASSWORD</label>
+		    <input type="password" class="form-control" id="memberPw" name="memberPw">
+		  </div>
+		  <div class="col-12">
+		    <label for="memberName" class="form-label">NAME</label>
+		    <input type="text" class="form-control" id="memberName" name="memberName">
+		  </div>
+		  <div class="col-9">
+		    <label for="memberAddr" class="form-label">ADDRESS</label>
+		    <input onclick="searchAddr();" type="text" class="form-control" id="memberAddr" name="memberAddr" readonly>
+		  </div>
+		  <div class="col-3">
+		  	<label for="" class="form-label">&nbsp;</label>
+			<input onclick="searchAddr();" type="button" class="btn btn-secondary form-control" value="Search">
+		  </div>
+		  <div class="col-12">
+		  	<input type="text" class="form-control" name="addrDetail">
+		  </div>
+		  <div class="col-12">
+		    <label for="memberEmail" class="form-label">EMAIL</label>
+		    <input type="email" class="form-control" id="memberEmail" name="memberEmail">
+		  </div>
+		  <div class="col-12 d-grid gap-2">
+		    <button type="submit" class="btn btn-primary">JOIN</button>
+		  </div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript" th:src="@{/js/layout/top.js}"></script>
+</div>
+</html>
+
