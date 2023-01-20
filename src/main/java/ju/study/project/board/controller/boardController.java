@@ -8,12 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-	
+
 	@GetMapping("/boardList")
 	public String boardList(boolean isLoginFail, Model model) {
-		model.addAttribute("isLoginFail", isLoginFail);
-		
-		
+
+		System.out.println("Ddfdsfsd");
+		System.out.println("Ddfdsfsd");
+		System.out.println("Ddfdsfsd");
+		System.out.println("Ddfdsfsd");
+
+//		model.addAttribute("isLoginFail", isLoginFail);
+
+
 		return "content/board/board_list";
 	}
 }

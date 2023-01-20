@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0</version>
+		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ju.study</groupId>
@@ -80,7 +80,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- html에서 시큐리티 정보를 가져올 수 있는 태그를 사용 -->
-		<!-- <dependency>
+	 	<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-taglibs</artifactId>
 		    <version>5.0.7.RELEASE</version>
@@ -89,7 +89,9 @@
 		    <groupId>org.thymeleaf.extras</groupId>
 		    <artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		    <version>3.0.4.RELEASE</version>
-		</dependency> -->
+		</dependency>
+		<!--  -->
+		
 		
 		<dependency>
 			<groupId>javax.annotation</groupId>

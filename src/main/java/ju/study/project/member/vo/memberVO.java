@@ -16,7 +16,8 @@ public class MemberVO {
 	private String addrDetail;
 	private String memEmail;
 	private String isAdmin;
-	
+	private String memRole;
+
 }
 
 

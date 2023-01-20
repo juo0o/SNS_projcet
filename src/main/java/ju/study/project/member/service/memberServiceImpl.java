@@ -9,14 +9,20 @@ import ju.study.project.member.vo.MemberVO;
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
 
+
 	@Autowired
-	SqlSessionTemplate sqlSession;
+	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public void join(MemberVO memberVO) {
 		sqlSession.insert("memberMapper.join",memberVO);
+
+
 	}
-	
-	
-	
+
+	@Override
+	public MemberVO login(MemberVO memberVO) {
+		return sqlSession.selectOne("memberMapper.login",memberVO);
+	}
+
 }

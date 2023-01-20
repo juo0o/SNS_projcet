@@ -3,7 +3,7 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="memberMapper">
-	<resultMap type="ju.study.project.member.vo.MemberVO" id="member">
+ 	<resultMap type="ju.study.project.member.vo.MemberVO" id="member">
 		<id column="MEM_ID" 			property="memId"/>
 		<result column="MEM_PW" 			property="memPw"/>
 		<result column="MEM_NAME" 		property="memName"/>
@@ -12,6 +12,7 @@
 		<result column="ADDR_DETAIL" 	property="addrDetail"/>
 		<result column="MEM_EMAIL" 	property="memEmail"/>
 		<result column="IS_ADMIN" 	property="isAdmin"/>
+		<result column="MEM_ROLE" 	property="memRole"/>
 	</resultMap>
 
 	<insert id="join">
@@ -23,7 +24,6 @@
 			, MEM_ADDR
 			, ADDR_DETAIL
 			, MEM_EMAIL
-			, IS_ADMIN
 		)VALUES(
 			#{memId}
 			, #{memPw}
@@ -32,11 +32,16 @@
 			, #{memAddr}
 			, #{addrDetail}
 			, #{memEmail}
-			, #{isAdmin}
 		)
-		
 	</insert>
-		
+
+	<select id="login" resultMap="member">
+		SELECT MEM_ID
+			, MEM_ROLE
+			, MEM_PW
+		FROM MEMBER
+		WHERE MEM_ID = #{memId}
+	</select>
 </mapper>
 
 
