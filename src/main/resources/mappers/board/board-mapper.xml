@@ -9,12 +9,38 @@
 		<result column="WRITER" 		property="writer"/>
 		<result column="CONTENT" 		property="content"/>
 		<result column="CREATE_DATE" 	property="createDate"/>
+		<result column="PICTURE_ORIGIN_NAME" 	property="pictureOriginName"/>
+		<result column="PICTURE_REFILE_NAME" 	property="pictureRefileName"/>
 	</resultMap>
 
+
+
+<!-- 작성자,게시글작성일 자동생성  -->
+	<select id="selectWD" resultMap="board">
+		SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD') AS CREATE_DATE
+		FROM DUAL
+	</select>
 	
+<insert id="regBoard">
+		INSERT INTO BOARD(
+			PICTURE_ORIGIN_NAME
+			, PICTURE_REFILE_NAME
+			, TITLE
+			, CONTENT
+			, WRITER
+			, CREATE_DATE
+		) VALUES(
+			{pictureOriginName}
+			,{pictureRefileName}
+			,{title}
+			,{writer}
+			,{content}
+			,{createDate}
+		)
+		
+</insert>
 		
 </mapper>
-
 
 
 
